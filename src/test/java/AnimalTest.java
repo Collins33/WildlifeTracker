@@ -3,6 +3,7 @@
  */
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.time.LocalDateTime;
 
 public class AnimalTest {
 @Test
@@ -15,5 +16,10 @@ public void instantiatesWell(){
 public void getterMethodsWorkwell_true(){
   Animal myAnimal=new Animal("lion","collins","endangered");
   assertEquals("lion", myAnimal.getName());
+}
+@Test
+public void getCreatedAt_getsWhenAnimalWasInstantiated_now(){
+  Animal myAnimal=new Animal("lion","collins","endangered");
+  assertEquals(LocalDateTime.now().getDayOfWeek(),myAnimal.getCreatedAt().getDayOfWeek());
 }
 }
