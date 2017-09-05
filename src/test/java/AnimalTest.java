@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class AnimalTest {
 @Test
 public void instantiatesWell(){
-  Animal myAnimal=new Animal();
+  Animal myAnimal=new Animal("lion","collins","endangered");
   assertTrue(myAnimal instanceof Animal);
 }
 }
