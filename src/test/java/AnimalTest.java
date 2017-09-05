@@ -10,4 +10,10 @@ public void instantiatesWell(){
   Animal myAnimal=new Animal("lion","collins","endangered");
   assertTrue(myAnimal instanceof Animal);
 }
+
+@Test
+public void getterMethodsWorkwell_true(){
+  Animal myAnimal=new Animal("lion","collins","endangered");
+  assertEquals("lion", myAnimal.getName());
+}
 }
