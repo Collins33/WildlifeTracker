@@ -8,12 +8,14 @@ private String ranger;
 private String status;
 private LocalDateTime sighted;
 private static List<Animal> instances=new ArrayList<Animal>();
+private int id;
 public Animal(String name,String ranger,String status){
         this.name=name;
         this.ranger=ranger;
         this.status=status;
         sighted=LocalDateTime.now();
         instances.add(this);
+        id=instances.size();
 }
 
 public String getName(){
@@ -33,5 +35,8 @@ public static List<Animal> all(){
 }
 public static void clear(){
   instances.clear();
+}
+public int getId(){
+  return id;
 }
 }
