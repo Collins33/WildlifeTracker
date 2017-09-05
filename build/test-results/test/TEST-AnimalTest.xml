@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="AnimalTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-09-05T18:45:37" hostname="collins-Lenovo-Flex-2-14" time="0.005">
+<testsuite name="AnimalTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-09-05T19:22:17" hostname="collins-Lenovo-Flex-2-14" time="0.005">
   <properties/>
   <testcase name="instantiatesWell" classname="AnimalTest" time="0.003"/>
   <testcase name="getterMethodsWorkwell_true" classname="AnimalTest" time="0.001"/>
