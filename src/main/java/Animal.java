@@ -39,4 +39,7 @@ public static void clear(){
 public int getId(){
   return id;
 }
+public static Animal find(int id){
+  return instances.get(id - 1);
+}
 }

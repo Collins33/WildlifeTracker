@@ -41,4 +41,11 @@ public void getId_returnsUniqueId_int(){
         Animal myAnimal=new Animal("lion","collins","endangered");
         assertEquals(1,myAnimal.getId());
 }
+@Test
+public void find_returnsAnimalBasedOnId_secondAnimal(){
+     Animal.clear();
+     Animal myAnimal=new Animal("lion","collins","endangered");
+     Animal secondAnimal=new Animal("tiger","collins","endangered");
+     assertEquals(secondAnimal,Animal.find(secondAnimal.getId()));
+}
 }
