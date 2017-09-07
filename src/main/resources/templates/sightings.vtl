@@ -1,0 +1,11 @@
+<h1 class="text-center">ALL ANIMAL SIGHTINGS</h1>
+
+#foreach($sighting in $sightings)
+
+<div class="col-md-4 row">
+<h1>NAME OF SIGHTING: $sighting.getName()</h1>
+<h1>LOCATION OF SIGHTING: $sighting.getLocation()</h1>
+<h1>TIME OF SIGHTING:$sighting.getTime()</h1>
+</div>
+
+#end
