@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="AnimalTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2017-09-07T18:14:45" hostname="collins-Lenovo-Flex-2-14" time="0.033">
+<testsuite name="AnimalTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2017-09-07T18:18:28" hostname="collins-Lenovo-Flex-2-14" time="0.035">
   <properties/>
-  <testcase name="getCreatedAt_getsWhenAnimalWasInstantiated_now" classname="AnimalTest" time="0.03"/>
+  <testcase name="getCreatedAt_getsWhenAnimalWasInstantiated_now" classname="AnimalTest" time="0.032"/>
   <testcase name="find_returnsAnimalBasedOnId_secondAnimal" classname="AnimalTest" time="0.0"/>
   <testcase name="clear_clearsTheArrayWithAnimals_true" classname="AnimalTest" time="0.0"/>
   <testcase name="instantiatesWell" classname="AnimalTest" time="0.0"/>

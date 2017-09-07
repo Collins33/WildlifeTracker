@@ -26,4 +26,11 @@ public class SightingTest{
     assertEquals(1,newSighting.getId());
 
   }
+  @Test
+  public void find_returnsTheObjectFromId_true(){
+    Sighting newSighting=new Sighting("firstSighting","riverbed","morning");
+    Sighting secondSighting=new Sighting("firstSighting","riverbed","morning");
+    assertEquals(Sighting.find(newSighting.getId()),newSighting);
+  }
+
 }
