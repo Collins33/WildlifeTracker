@@ -32,5 +32,18 @@ public class SightingTest{
     Sighting secondSighting=new Sighting("firstSighting","riverbed","morning");
     assertEquals(Sighting.find(newSighting.getId()),newSighting);
   }
+  @Test
+  public void getAnimal_initiallyReturnsEmptyList_ArrayList(){
+    Sighting.clear();
+    Sighting newSighting=new Sighting("firstSighting","riverbed","morning");
+    assertEquals(0,newSighting.getAnimals().size());
+  }
+  @Test
+  public void addAnimal_addAnimalToList_true(){
+    Sighting newSighting=new Sighting("firstSighting","riverbed","morning");
+    Animal myAnimal=new Animal("lion","collins","endangered");
+    newSighting.addAnimal(myAnimal);
+    assertTrue(newSighting.getAnimals().contains(myAnimal));
+  }
 
 }

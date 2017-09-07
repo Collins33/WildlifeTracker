@@ -9,6 +9,7 @@ private String location;
 private String time;
 private static List<Sighting> instances=new ArrayList<Sighting>();
 private int mId;
+private static List<Animal> mAnimals;
 
 public Sighting(String name,String location,String time){
         this.name=name;
@@ -16,6 +17,7 @@ public Sighting(String name,String location,String time){
         this.time=time;
         instances.add(this);
         mId=instances.size();
+        mAnimals=new ArrayList<Animal>();
 }
 
 public String getName(){
@@ -39,5 +41,11 @@ public int getId(){
 }
 public static Sighting find(int id){
   return instances.get(id-1);
+}
+public List<Animal> getAnimals(){
+  return mAnimals;
+}
+public void addAnimal(Animal animal){
+  mAnimals.add(animal);
 }
 }
