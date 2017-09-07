@@ -23,6 +23,16 @@ public static void main(String[] args) {
                     model.put("template","templates/sighting-form.vtl");
                     return new ModelAndView(model,layout);
             },new VelocityTemplateEngine());
+
+        post("/sightings", (request,response) ->{
+                     Map<String, Object> model = new HashMap<String, Object>();
+                     String name=request.queryParams("name");
+                     String location=request.queryParams("location");
+                     String time=request.queryParams("time");
+                     Sighting newSighting=new Sighting(name,location,time);
+                     model.put("template","/templates/success.vtl");
+                     return new ModelAndView(model,layout);
+             },new VelocityTemplateEngine());
 }
 
 
