@@ -8,12 +8,14 @@ private String name;
 private String location;
 private String time;
 private static List<Sighting> instances=new ArrayList<Sighting>();
+private int mId;
 
 public Sighting(String name,String location,String time){
         this.name=name;
         this.location=location;
         this.time=time;
         instances.add(this);
+        mId=instances.size();
 }
 
 public String getName(){
@@ -31,5 +33,8 @@ public static List<Sighting> all() {
   }
 public static void clear(){
   instances.clear();
+}
+public int getId(){
+  return mId;
 }
 }

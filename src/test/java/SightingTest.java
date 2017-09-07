@@ -18,4 +18,12 @@ public class SightingTest{
     Sighting.clear();
     assertEquals(0,Sighting.all().size());
   }
+  @Test
+  public void getId_returnsId_int(){
+    Sighting.clear();
+    Sighting newSighting=new Sighting("firstSighting","riverbed","morning");
+
+    assertEquals(1,newSighting.getId());
+
+  }
 }
