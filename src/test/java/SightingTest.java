@@ -12,4 +12,10 @@ public class SightingTest{
     Sighting newSighting=new Sighting("firstSighting","riverbed","morning");
     assertEquals("firstSighting",newSighting.getName());
   }
+  @Test
+  public void clear_emptiesArrayList(){
+    Sighting newSighting=new Sighting("firstSighting","riverbed","morning");
+    Sighting.clear();
+    assertEquals(0,Sighting.all().size());
+  }
 }
