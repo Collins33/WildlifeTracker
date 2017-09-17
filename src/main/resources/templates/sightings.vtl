@@ -3,9 +3,7 @@
 #foreach($sighting in $sightings)
 
 <div class="col-md-4 row">
-<h1>NAME OF SIGHTING: $sighting.getName()</h1>
-<h1>LOCATION OF SIGHTING: $sighting.getLocation()</h1>
-<h1>TIME OF SIGHTING:$sighting.getTime()</h1>
+<h3>NAME OF SIGHTING: <a href="/sightings/$sighting.getId()">$sighting.getName()</a></h3>
 </div>
 
 #end

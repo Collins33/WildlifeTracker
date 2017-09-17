@@ -41,6 +41,14 @@ public static void main(String[] args) {
                     return new ModelAndView(model,layout);
 
             },new VelocityTemplateEngine());
+
+        get("sightings/:id", (request,response)-> {
+                    Map<String, Object> model = new HashMap<String, Object>();
+                    Sighting sighting=Sighting.find(Integer.parseInt(request.params(":id")));
+                    model.put("sighting",sighting);
+                    model.put("template","templates/sighting.vtl");
+                    return new ModelAndView(model,layout);
+            },new VelocityTemplateEngine());
 }
 
 
