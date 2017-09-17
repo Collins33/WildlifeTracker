@@ -1,7 +1,22 @@
 <div class="well">
 <h1 class="text-center">
 $sighting.getName()
+</h1>
 $sighting.getLocation()
 $sighting.getTime()
-</h1>
+
+<h2>animal in $sighting.getName()</h2>
+
+  #foreach($animal in $sighting.getAnimals())
+   <div class="col-md-4 well">
+   <h3>NAME: $animal.getName()</h3>
+   <h3>RANGER IN SIGHTING: $animal.getRanger()</h3>
+   <h3>ANIMAL STATUS:
+   $animal.getStatus()</h3>
+   <h3>TIME OF SIGHTING:
+   $animal.getCreatedAt()</h3>
+   </div>
+  #end
+
+<h2><a href="/sightings/$sighting.getId()/animal/new">ADD AN ANIMAL</a></h2>
 </div>

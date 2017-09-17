@@ -49,6 +49,28 @@ public static void main(String[] args) {
                     model.put("template","templates/sighting.vtl");
                     return new ModelAndView(model,layout);
             },new VelocityTemplateEngine());
+
+        get("/sightings/:id/animal/new", (request,response) -> {
+                    Map<String, Object> model = new HashMap<String, Object>();
+                    Sighting sighting=Sighting.find(Integer.parseInt(request.params(":id")));
+                    model.put("sighting",sighting);
+                    model.put("template","templates/new-animal-form.vtl");
+                    return new ModelAndView(model,layout);
+            },new VelocityTemplateEngine());
+
+        post("/animals", (request,response) ->{
+                     Map<String, Object> model = new HashMap<String, Object>();
+                     Sighting sighting=Sighting.find(Integer.parseInt(request.queryParams("sightingId")));
+                     String name=request.queryParams("name");
+                     String ranger=request.queryParams("ranger");
+                     String status=request.queryParams("status");
+                     Animal animal=new Animal(name,ranger,status);
+
+                     sighting.addAnimal(animal);
+                     model.put("sighting",sighting);
+                     model.put("template","templates/added.vtl");
+                     return new ModelAndView(model,layout);
+             },new VelocityTemplateEngine());
 }
 
 
