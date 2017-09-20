@@ -4,8 +4,16 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
 import java.time.LocalDateTime;
+import org.sql2o.*;
+import org.junit.*;
 
 public class AnimalTest {
+
+  @Before
+  public void setUp(){
+    DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/wildlife_tracker_test", "collins", "collins33");
+  }
+
 @Test
 public void instantiatesWell(){
         Animal myAnimal=new Animal("lion","collins","endangered");

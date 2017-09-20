@@ -2,6 +2,16 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class SightingTest{
+  @Before
+  public void setUp(){
+    DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/wildlife_tracker_test", "collins", "collins33");
+  }
+  @After
+  public void tearDown(){
+    try(Connection con=DB.sql2o.open()){
+      String sql="DELETE FROM ;";
+    }
+  }
   @Test
   public void InstantiatesCorrectly_true(){
     Sighting newSighting=new Sighting("firstSighting","riverbed","morning");
