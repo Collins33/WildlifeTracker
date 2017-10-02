@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="AnimalTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2017-09-17T18:24:01" hostname="collins-lenovo-flex-2-14" time="0.031">
+<testsuite name="AnimalTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2017-10-02T10:40:27" hostname="collins-lenovo-flex-2-14" time="1.03">
   <properties/>
-  <testcase name="getCreatedAt_getsWhenAnimalWasInstantiated_now" classname="AnimalTest" time="0.029"/>
-  <testcase name="find_returnsAnimalBasedOnId_secondAnimal" classname="AnimalTest" time="0.0"/>
-  <testcase name="clear_clearsTheArrayWithAnimals_true" classname="AnimalTest" time="0.0"/>
-  <testcase name="instantiatesWell" classname="AnimalTest" time="0.0"/>
-  <testcase name="getterMethodsWorkwell_true" classname="AnimalTest" time="0.001"/>
-  <testcase name="all_returnsAllInstancesOfAnimal_true" classname="AnimalTest" time="0.0"/>
-  <testcase name="getId_returnsUniqueId_int" classname="AnimalTest" time="0.0"/>
+  <testcase name="find_returnsNullWhenNoAnimalFound_null" classname="AnimalTest" time="0.744"/>
+  <testcase name="animal_instantiatesCorrectly_false" classname="AnimalTest" time="0.015"/>
+  <testcase name="save_assignsIdToObjectAndSavesObjectToDatabase" classname="AnimalTest" time="0.152"/>
+  <testcase name="equals_returnsTrueIfNameIsTheSame_false" classname="AnimalTest" time="0.01"/>
+  <testcase name="delete_deletesAnimalFromDatabase_0" classname="AnimalTest" time="0.028"/>
+  <testcase name="all_returnsAllInstancesOfAnimal_false" classname="AnimalTest" time="0.035"/>
+  <testcase name="getName_animalInstantiatesWithName_Hyena" classname="AnimalTest" time="0.01"/>
+  <testcase name="find_returnsAnimalWithSameId_secondAnimal" classname="AnimalTest" time="0.027"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
