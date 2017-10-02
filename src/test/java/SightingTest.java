@@ -1,59 +1,73 @@
-import org.junit.Test;
+import org.junit.*;
+import org.sql2o.*;
 import static org.junit.Assert.*;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.text.DateFormat;
+import java.util.Date;
 
-public class SightingTest{
-  @Before
-  public void setUp(){
-    DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/wildlife_tracker_test", "collins", "collins33");
-  }
-  @After
-  public void tearDown(){
-    try(Connection con=DB.sql2o.open()){
-      String sql="DELETE FROM ;";
-    }
-  }
-  @Test
-  public void InstantiatesCorrectly_true(){
-    Sighting newSighting=new Sighting("firstSighting","riverbed","morning");
-    assertTrue(newSighting instanceof Sighting);
-  }
-  @Test
-  public void getterMethodsWorkWell(){
-    Sighting newSighting=new Sighting("firstSighting","riverbed","morning");
-    assertEquals("firstSighting",newSighting.getName());
-  }
-  @Test
-  public void clear_emptiesArrayList(){
-    Sighting newSighting=new Sighting("firstSighting","riverbed","morning");
-    Sighting.clear();
-    assertEquals(0,Sighting.all().size());
-  }
-  @Test
-  public void getId_returnsId_int(){
-    Sighting.clear();
-    Sighting newSighting=new Sighting("firstSighting","riverbed","morning");
+public class SightingTest {
 
-    assertEquals(1,newSighting.getId());
+  @Rule
+  public DatabaseRule database = new DatabaseRule();
 
-  }
   @Test
-  public void find_returnsTheObjectFromId_true(){
-    Sighting newSighting=new Sighting("firstSighting","riverbed","morning");
-    Sighting secondSighting=new Sighting("firstSighting","riverbed","morning");
-    assertEquals(Sighting.find(newSighting.getId()),newSighting);
+  public void sighting_instantiatesCorrectly_true() {
+    Animal testAnimal = new Animal("Lion");
+    testAnimal.save();
+    Sighting testSighting = new Sighting(testAnimal.getId(), "45.472428, -121.946466", "John Chege");
+    assertEquals(true, testSighting instanceof Sighting);
   }
+
   @Test
-  public void getAnimal_initiallyReturnsEmptyList_ArrayList(){
-    Sighting.clear();
-    Sighting newSighting=new Sighting("firstSighting","riverbed","morning");
-    assertEquals(0,newSighting.getAnimals().size());
+  public void equals_returnsTrueIfLocationAndDescriptionAreSame_true() {
+    Animal testAnimal = new Animal("Lion");
+    testAnimal.save();
+    Sighting testSighting = new Sighting(testAnimal.getId(), "45.472428, -121.946466", "John Chege");
+    Sighting anotherSighting = new Sighting(testAnimal.getId(), "45.472428, -121.946466", "John Chege");
+    assertTrue(testSighting.equals(anotherSighting));
   }
+
   @Test
-  public void addAnimal_addAnimalToList_true(){
-    Sighting newSighting=new Sighting("firstSighting","riverbed","morning");
-    Animal myAnimal=new Animal("lion","collins","endangered");
-    newSighting.addAnimal(myAnimal);
-    assertTrue(newSighting.getAnimals().contains(myAnimal));
+  public void save_insertsObjectIntoDatabase_Sighting() {
+    Animal testAnimal = new Animal("Lion");
+    testAnimal.save();
+    Sighting testSighting = new Sighting (testAnimal.getId(), "45.472428, -121.946466", "John Chege");
+    testSighting.save();
+    assertEquals(true, Sighting.all().get(0).equals(testSighting));
+  }
+
+  @Test
+  public void all_returnsAllInstancesOfSighting_true() {
+    Animal testAnimal = new Animal("Lion");
+    testAnimal.save();
+    Sighting testSighting = new Sighting (testAnimal.getId(), "45.472428, -121.946466", "John Chege");
+    testSighting.save();
+    Animal secondTestAnimal = new Animal("C");
+    secondTestAnimal.save();
+    Sighting secondTestSighting = new Sighting (testAnimal.getId(), "45.472428, -121.946466", "Kevin Onyango");
+    secondTestSighting.save();
+    assertEquals(true, Sighting.all().get(0).equals(testSighting));
+    assertEquals(true, Sighting.all().get(1).equals(secondTestSighting));
+  }
+
+  @Test
+  public void find_returnsSightingWithSameId_secondSighting() {
+    Animal testAnimal = new Animal("Lion");
+    testAnimal.save();
+    Sighting testSighting = new Sighting (testAnimal.getId(), "45.472428, -121.946466", "John Chege");
+    testSighting.save();
+    Animal secondTestAnimal = new Animal("Cheetah");
+    secondTestAnimal.save();
+    Sighting secondTestSighting = new Sighting (testAnimal.getId(), "45.472428, -121.946466", "Kevin Onyango");
+    secondTestSighting.save();
+    assertEquals(Sighting.find(secondTestSighting.getId()), secondTestSighting);
+  }
+
+  @Test
+  public void find_returnsNullWhenNoAnimalFound_null() {
+    assertTrue(Animal.find(999) == null);
   }
 
 }
