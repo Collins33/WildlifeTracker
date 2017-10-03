@@ -12,9 +12,17 @@ COLLINS NJAU MURU
 
 # RUNNING IT
 -git clone https://github.com/Collins33/WildlifeTracker
+
 -ls WildlifeTracker
+
 -gradle build
+
 -gradle run
+
+# database
+-CREATE DATABASE wildlife_tracker
+
+-run the following command in bash:psql media < outfile.sql
 
 License
 ----
